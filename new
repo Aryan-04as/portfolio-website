@@ -1,0 +1,24 @@
+<script>
+  const emojis = ["✨", "💫", "🔥", "🎨", "💥", "⚡", "🌟"];
+  document.addEventListener("mousemove", (e) => {
+    const emoji = document.createElement("div");
+    emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    emoji.style.position = "absolute";
+    emoji.style.left = e.pageX + "px";
+    emoji.style.top = e.pageY + "px";
+    emoji.style.fontSize = "20px";
+    emoji.style.pointerEvents = "none";
+    emoji.style.opacity = 1;
+    emoji.style.transition = "all 1s ease-out";
+    document.body.appendChild(emoji);
+
+    setTimeout(() => {
+      emoji.style.top = (e.pageY - 100) + "px";
+      emoji.style.opacity = 0;
+    }, 10);
+
+    setTimeout(() => {
+      emoji.remove();
+    }, 1000);
+  });
+</script>
